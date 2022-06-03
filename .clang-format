@@ -7,3 +7,4 @@ ReferenceAlignment: Left
 SpaceBeforeParens: Custom
 SpaceBeforeParensOptions:
   AfterControlStatements: false
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse

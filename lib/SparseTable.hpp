@@ -27,7 +27,7 @@ public:
         for(auto it = first; it != last; ++it)
             f.emplace_back(arr{*it});
         for(int i = 1; (1 << i) <= f.size(); i++)
-            for(int j = 0; j + (1 << i) - 1 < f.size(); j++) // asd
+            for(int j = 0; j + (1 << i) - 1 < f.size(); j++)
                 f[j][i] = m(f[j][i - 1], f[j + (1 << i - 1)][i - 1]);
     }
     /**
