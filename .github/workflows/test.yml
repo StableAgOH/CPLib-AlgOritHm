@@ -1,0 +1,22 @@
+name: Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+        run: |
+          cmake -S . -B cmake-build-debug
+          cmake --build cmake-build-debug
+      - name: Test
+        run: |
+          cd cmake-build-debug
+          ctest --extra-verbose
