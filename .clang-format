@@ -1,0 +1,9 @@
+BasedOnStyle: Microsoft
+AccessModifierOffset: -4
+SpaceAfterTemplateKeyword: false
+AlwaysBreakTemplateDeclarations: Yes
+PointerAlignment: Left
+ReferenceAlignment: Left
+SpaceBeforeParens: Custom
+SpaceBeforeParensOptions:
+  AfterControlStatements: false
