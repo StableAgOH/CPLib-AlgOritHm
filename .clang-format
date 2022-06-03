@@ -1,10 +1,11 @@
-BasedOnStyle: Microsoft
 AccessModifierOffset: -4
-SpaceAfterTemplateKeyword: false
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 AlwaysBreakTemplateDeclarations: Yes
+BasedOnStyle: Microsoft
+IndentRequires: false
 PointerAlignment: Left
 ReferenceAlignment: Left
+SpaceAfterTemplateKeyword: false
 SpaceBeforeParens: Custom
 SpaceBeforeParensOptions:
   AfterControlStatements: false
-AllowShortIfStatementsOnASingleLine: AllIfsAndElse

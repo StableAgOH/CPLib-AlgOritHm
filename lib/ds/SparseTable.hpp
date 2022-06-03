@@ -22,7 +22,8 @@ private:
 
 public:
     template<typename II>
-    requires std::input_iterator<II> SparseTable(const II first, const II last)
+    requires std::input_iterator<II>
+    SparseTable(const II first, const II last)
     {
         for(auto it = first; it != last; ++it)
             f.emplace_back(arr{*it});

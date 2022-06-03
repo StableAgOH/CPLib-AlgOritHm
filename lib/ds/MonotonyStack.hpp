@@ -17,7 +17,8 @@ private:
 
 public:
     template<typename II>
-    requires std::input_iterator<II> MonotonyStack(const II first, const II last, const int default_value = -1)
+    requires std::input_iterator<II>
+    MonotonyStack(const II first, const II last, const int default_value = -1)
     {
         std::stack<int> st;
         for(auto it = first; it != last; ++it)

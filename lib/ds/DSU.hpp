@@ -12,7 +12,7 @@ private:
     std::vector<size_t> fa;
 
 public:
-    DSU(const size_t n)
+    explicit DSU(const size_t n)
     {
         this->fa.resize(n + 1);
         std::iota(fa.begin(), fa.end(), 0);
