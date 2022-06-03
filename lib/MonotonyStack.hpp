@@ -1,4 +1,7 @@
-#pragma once
+#ifndef __MONOTONY_STACK_HPP__
+#define __MONOTONY_STACK_HPP__
+#endif
+
 #include <algorithm>
 #include <functional>
 #include <stack>

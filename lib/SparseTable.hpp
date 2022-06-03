@@ -1,4 +1,7 @@
-#pragma once
+#ifndef __SPARSE_TABLE_HPP__
+#define __SPARSE_TABLE_HPP__
+#endif
+
 #include <array>
 #include <cassert>
 #include <cmath>
