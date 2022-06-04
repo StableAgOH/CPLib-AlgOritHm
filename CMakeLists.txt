@@ -21,7 +21,7 @@ add_executable(
         AlgOritHm_test
         test/ds/DSUTest.cpp
         test/ds/MonotonyTest.cpp
-        test/ds/SparseTableTest.cpp test/algo/algoTest.cpp)
+        test/ds/SparseTableTest.cpp test/algo/algoTest.cpp test/ds/MonotonyStackTest.cpp)
 target_link_libraries(AlgOritHm_test gtest_main)
 
 include(GoogleTest)
