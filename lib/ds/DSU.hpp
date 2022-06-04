@@ -1,9 +1,13 @@
-#ifndef __DSU_HPP__
-#define __DSU_HPP__
-#endif
+//
+// Created by AgOH on 2022/6/4.
+//
+
+#ifndef CPLIB_ALGORITHM_LIB_DS_DSU_HPP
+#define CPLIB_ALGORITHM_LIB_DS_DSU_HPP
 
 #include <numeric>
 #include <vector>
+
 namespace agoh
 {
 class DSU
@@ -33,3 +37,5 @@ public:
     }
 };
 } // namespace agoh
+
+#endif // CPLIB_ALGORITHM_LIB_DS_DSU_HPP

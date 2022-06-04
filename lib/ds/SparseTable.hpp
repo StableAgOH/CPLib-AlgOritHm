@@ -1,11 +1,11 @@
-#ifndef __SPARSE_TABLE_HPP__
-#define __SPARSE_TABLE_HPP__
-#endif
+#ifndef CPLIB_ALGORITHM_LIB_DS_SPARSETABLE_HPP
+#define CPLIB_ALGORITHM_LIB_DS_SPARSETABLE_HPP
 
 #include <array>
 #include <cassert>
 #include <cmath>
 #include <functional>
+
 namespace agoh
 {
 template<typename T = int32_t, typename C = std::less<T>>
@@ -44,3 +44,5 @@ public:
     }
 };
 } // namespace agoh
+
+#endif // CPLIB_ALGORITHM_LIB_DS_SPARSETABLE_HPP

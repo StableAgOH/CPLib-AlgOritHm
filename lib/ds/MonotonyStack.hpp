@@ -1,11 +1,11 @@
-#ifndef __MONOTONY_STACK_HPP__
-#define __MONOTONY_STACK_HPP__
-#endif
+#ifndef CPLIB_ALGORITHM_LIB_DS_MONOTONYSTACK_HPP
+#define CPLIB_ALGORITHM_LIB_DS_MONOTONYSTACK_HPP
 
 #include <algorithm>
 #include <functional>
 #include <stack>
 #include <vector>
+
 namespace agoh
 {
 template<typename T = int32_t, typename C = std::less<T>>
@@ -42,3 +42,5 @@ public:
     }
 };
 } // namespace agoh
+
+#endif // CPLIB_ALGORITHM_LIB_DS_MONOTONYSTACK_HPP
