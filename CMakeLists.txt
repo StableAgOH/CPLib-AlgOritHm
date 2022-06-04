@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
+
 set(CMAKE_C_COMPILER /usr/bin/gcc-11)
 set(CMAKE_CXX_COMPILER /usr/bin/g++-11)
 
