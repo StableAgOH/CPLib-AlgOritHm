@@ -8,7 +8,7 @@
 
 namespace agoh
 {
-template<typename T = int32_t, typename C = std::less<T>>
+template<typename C = std::less<>>
 class MonotonyStack
 {
 private:
