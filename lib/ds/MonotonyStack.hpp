@@ -8,22 +8,22 @@
 #include <vector>
 namespace agoh
 {
-template<typename T = int, typename C = std::less_equal<T>>
+template<typename T = int32_t, typename C = std::less<T>>
 class MonotonyStack
 {
 private:
-    std::vector<int> res;
+    std::vector<int32_t> res;
     C comp;
 
 public:
     template<typename II>
     requires std::input_iterator<II>
-    MonotonyStack(const II first, const II last, const int default_value = -1)
+    MonotonyStack(const II first, const II last, const int32_t default_value = -1)
     {
-        std::stack<int> st;
+        std::stack<int32_t> st;
         for(auto it = first; it != last; ++it)
         {
-            while(!st.empty() && comp(*it, *(first + st.top())))
+            while(!st.empty() && !comp(*(first + st.top()), *it))
                 st.pop();
             res.push_back(st.empty() ? default_value : st.top());
             st.push(it - first);

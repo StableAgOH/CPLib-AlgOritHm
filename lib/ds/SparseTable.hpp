@@ -8,7 +8,7 @@
 #include <functional>
 namespace agoh
 {
-template<typename T = int, typename C = std::less<T>>
+template<typename T = int32_t, typename C = std::less<T>>
 class SparseTable
 {
 private:
@@ -29,7 +29,7 @@ public:
             f.emplace_back(arr{*it});
         for(int i = 1; (1 << i) <= f.size(); i++)
             for(int j = 0; j + (1 << i) - 1 < f.size(); j++)
-                f[j][i] = m(f[j][i - 1], f[j + (1 << i - 1)][i - 1]);
+                f[j][i] = m(f[j][i - 1], f[j + (1 << (i - 1))][i - 1]);
     }
     /**
      * @param l Left endpoint of the closed interval, indexed from 0
@@ -39,7 +39,7 @@ public:
     T& query(const size_t l, const size_t r)
     {
         assert(l <= r);
-        size_t k = log2(r - l + 1);
+        auto k = static_cast<size_t>(log2(static_cast<double_t>(r - l + 1)));
         return m(f[l][k], f[r - (1 << k) + 1][k]);
     }
 };
