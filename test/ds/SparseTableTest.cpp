@@ -3,17 +3,68 @@
 
 TEST(SparseTableTest, SparseTableTest1)
 {
-    std::vector<int> vin{9, 3, 1, 7, 5, 6, 0, 8};
-    std::vector<int> vans{9, 9, 7, 7, 9, 8, 7, 9};
-    std::vector<int> vout;
-    agoh::SparseTable<int, std::greater<>> st(vin.begin(), vin.end());
-    vout.push_back(st.query(0, 5));
-    vout.push_back(st.query(0, 4));
-    vout.push_back(st.query(1, 6));
-    vout.push_back(st.query(1, 5));
-    vout.push_back(st.query(0, 7));
-    vout.push_back(st.query(3, 7));
-    vout.push_back(st.query(2, 6));
-    vout.push_back(st.query(0, 7));
+    std::vector<int32_t> vin{1, 2, 3};
+    std::vector<int32_t> vans{1, 2, 3, 1, 2, 1, 1};
+    std::vector<int32_t> vout;
+    agoh::SparseTable<int32_t> st(vin.begin(), vin.end());
+    vout.push_back(st.query(0, 0));
+    vout.push_back(st.query(1, 1));
+    vout.push_back(st.query(2, 2));
+    vout.push_back(st.query(0, 1));
+    vout.push_back(st.query(1, 2));
+    vout.push_back(st.query(0, 2));
+    vout.push_back(st.query(0, 2));
+    ASSERT_EQ(vout, vans);
+}
+
+TEST(SparseTableTest, SparseTableTest2)
+{
+    std::vector<int32_t> vin{1, 2, 3};
+    std::vector<int32_t> vans{1, 2, 3, 2, 3, 3, 3};
+    std::vector<int32_t> vout;
+    agoh::SparseTable<int32_t, std::greater<>> st(vin.begin(), vin.end());
+    vout.push_back(st.query(0, 0));
+    vout.push_back(st.query(1, 1));
+    vout.push_back(st.query(2, 2));
+    vout.push_back(st.query(0, 1));
+    vout.push_back(st.query(1, 2));
+    vout.push_back(st.query(0, 2));
+    vout.push_back(st.query(0, 2));
+    ASSERT_EQ(vout, vans);
+}
+
+const int64_t e16 = int64_t(3e16);
+const int64_t e17 = int64_t(2e17);
+const int64_t e18 = int64_t(1e18);
+
+TEST(SparseTableTest, SparseTableTest3)
+{
+    std::vector<int64_t> vin{e16, e17, e18};
+    std::vector<int64_t> vans{e16, e17, e18, e16, e17, e16, e16};
+    std::vector<int64_t> vout;
+    agoh::SparseTable<int64_t> st(vin.begin(), vin.end());
+    vout.push_back(st.query(0, 0));
+    vout.push_back(st.query(1, 1));
+    vout.push_back(st.query(2, 2));
+    vout.push_back(st.query(0, 1));
+    vout.push_back(st.query(1, 2));
+    vout.push_back(st.query(0, 2));
+    vout.push_back(st.query(0, 2));
+    ASSERT_EQ(vout, vans);
+}
+
+TEST(SparseTableTest, SparseTableTest4)
+{
+    std::vector<int64_t> vin{e16, e17, e18};
+    std::vector<int64_t> vans{e16, e17, e18, e17, e18, e18, e18};
+    std::vector<int64_t> vout;
+    agoh::SparseTable<int64_t, std::greater<>> st(vin.begin(), vin.end());
+    vout.push_back(st.query(0, 0));
+    vout.push_back(st.query(1, 1));
+    vout.push_back(st.query(2, 2));
+    vout.push_back(st.query(0, 1));
+    vout.push_back(st.query(1, 2));
+    vout.push_back(st.query(0, 2));
+    vout.push_back(st.query(0, 2));
     ASSERT_EQ(vout, vans);
 }
