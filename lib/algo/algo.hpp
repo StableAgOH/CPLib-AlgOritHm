@@ -42,6 +42,23 @@ std::vector<int64_t> invn(size_t n, int64_t p)
         inv[i] = (p - p / static_cast<int64_t>(i)) * inv[p % i] % p;
     return inv;
 }
+
+std::vector<int32_t> euler_seive_prime(size_t n)
+{
+    std::vector<bool> vis(n + 1);
+    std::vector<int32_t> pri;
+    for(int32_t i = 2; i <= n; i++)
+    {
+        if(!vis[i]) pri.push_back(i);
+        for(auto j : pri)
+        {
+            if(int64_t(i) * j > n) break;
+            vis[i * j] = true;
+            if(i % j == 0) break;
+        }
+    }
+    return pri;
+}
 } // namespace agoh
 
 #endif // CPLIB_ALGORITHM_LIB_ALGO_ALGO_HPP
