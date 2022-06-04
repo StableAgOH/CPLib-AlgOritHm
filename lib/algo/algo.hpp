@@ -20,7 +20,7 @@ int64_t exgcd(int64_t a, int64_t b, int64_t& x, int64_t& y)
     return d;
 }
 
-int64_t qpow(int64_t a, int64_t k, int32_t p)
+int64_t qpow(int64_t a, int64_t k, int64_t p)
 {
     int64_t res = 1;
     for(; k; k >>= 1, a = a * a % p)
@@ -28,14 +28,14 @@ int64_t qpow(int64_t a, int64_t k, int32_t p)
     return res;
 }
 
-int64_t inv(int64_t a, int32_t p)
+int64_t inv(int64_t a, int64_t p)
 {
     int64_t x, y;
     exgcd(a, p, x, y);
     return (x % p + p) % p;
 }
 
-std::vector<int64_t> invn(size_t n, int32_t p)
+std::vector<int64_t> invn(size_t n, int64_t p)
 {
     std::vector<int64_t> inv(n + 1);
     inv[1] = 1;
@@ -60,7 +60,7 @@ int64_t phi(int64_t x)
     return res;
 }
 
-int32_t exeuler(int64_t a, std::string k, int32_t p)
+int64_t exeuler(int64_t a, const std::string& k, int64_t p)
 {
     auto phip = phi(p);
     int64_t t = 0;
@@ -93,6 +93,28 @@ std::vector<int32_t> euler_seive_prime(size_t n)
         }
     }
     return pri;
+}
+
+std::vector<size_t> kmp_next(const std::string& s)
+{
+    std::vector<size_t> nxt(s.length());
+    for(size_t i = 1, j = 0; i < s.length(); i++)
+    {
+        while(j > 0 && s[j] != s[i])
+            j = nxt[j - 1];
+        if(s[j] == s[i]) nxt[i] = ++j;
+    }
+    return nxt;
+}
+
+std::vector<size_t> kmp(const std::string& match, const std::string& pattern, char split = '#')
+{
+    std::vector<size_t> res;
+    auto s = pattern + split + match;
+    auto nxt = kmp_next(s);
+    for(size_t i = 0; i < s.length(); i++)
+        if(nxt[i] == pattern.length()) res.push_back(i - (pattern.length() << 1));
+    return res;
 }
 } // namespace agoh
 
