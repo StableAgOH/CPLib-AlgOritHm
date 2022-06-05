@@ -35,12 +35,12 @@ public:
     }
     virtual void add_edge(node_type u, node_type v, T w)
     {
-        if(u < 0 || u >= n || v < 0 || v >= n) throw std::out_of_range("Illegal node id");
+        if(u >= n || v >= n) throw std::out_of_range("Illegal node id");
         G[u].emplace_back(v, w);
     }
     void for_each_neighbor(node_type u, std::function<void(neighbor_type)>&& f) const
     {
-        if(u < 0 || u >= n) throw std::out_of_range("Illegal node id");
+        if(u >= n) throw std::out_of_range("Illegal node id");
         std::for_each(G[u].begin(), G[u].end(), f);
     }
     std::vector<edge_type> get_edges() const

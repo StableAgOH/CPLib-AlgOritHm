@@ -7,7 +7,7 @@
 
 namespace agoh
 {
-int64_t exgcd(int64_t a, int64_t b, int64_t& x, int64_t& y)
+int64_t ex_gcd(int64_t a, int64_t b, int64_t& x, int64_t& y)
 {
     if(!b)
     {
@@ -15,7 +15,7 @@ int64_t exgcd(int64_t a, int64_t b, int64_t& x, int64_t& y)
         y = 0;
         return a;
     }
-    auto d = exgcd(b, a % b, y, x);
+    auto d = ex_gcd(b, a % b, y, x);
     y -= (a / b) * x;
     return d;
 }
@@ -31,7 +31,7 @@ int64_t qpow(int64_t a, int64_t k, int64_t p)
 int64_t inv(int64_t a, int64_t p)
 {
     int64_t x, y;
-    exgcd(a, p, x, y);
+    ex_gcd(a, p, x, y);
     return (x % p + p) % p;
 }
 
@@ -60,7 +60,7 @@ int64_t phi(int64_t x)
     return res;
 }
 
-int64_t exeuler(int64_t a, const std::string& k, int64_t p)
+int64_t ex_euler(int64_t a, const std::string& k, int64_t p)
 {
     auto phip = phi(p);
     int64_t t = 0;
@@ -78,7 +78,7 @@ int64_t exeuler(int64_t a, const std::string& k, int64_t p)
     return qpow(a, t, p);
 }
 
-std::vector<int32_t> euler_seive_prime(size_t n)
+std::vector<int32_t> euler_sieve_prime(size_t n)
 {
     std::vector<bool> vis(n + 1);
     std::vector<int32_t> pri;
@@ -95,7 +95,7 @@ std::vector<int32_t> euler_seive_prime(size_t n)
     return pri;
 }
 
-std::vector<size_t> kmp_next(const std::string& s)
+std::vector<size_t> prefix_function(const std::string& s)
 {
     std::vector<size_t> nxt(s.length());
     for(size_t i = 1, j = 0; i < s.length(); i++)
@@ -107,11 +107,18 @@ std::vector<size_t> kmp_next(const std::string& s)
     return nxt;
 }
 
+/**
+ * Knuth–Morris–Pratt algorithm
+ * @param match match string
+ * @param pattern pattern string
+ * @param split A character that does not appear in match and pattern
+ * @return All positions where pattern string appears in match string, indexed from 0
+ */
 std::vector<size_t> kmp(const std::string& match, const std::string& pattern, char split = '#')
 {
     std::vector<size_t> res;
     auto s = pattern + split + match;
-    auto nxt = kmp_next(s);
+    auto nxt = prefix_function(s);
     for(size_t i = 0; i < s.length(); i++)
         if(nxt[i] == pattern.length()) res.push_back(i - (pattern.length() << 1));
     return res;

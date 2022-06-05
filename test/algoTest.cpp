@@ -6,7 +6,7 @@ TEST(algoTest, algoTest_exgcd)
 {
     int64_t a = 8, b = 6, x, y;
     int64_t g = std::__gcd(a, b);
-    agoh::exgcd(a, b, x, y);
+    agoh::ex_gcd(a, b, x, y);
     ASSERT_EQ(a * x + b * y, g);
 }
 
@@ -41,30 +41,30 @@ TEST(algoTest, algoTest_phi)
 
 TEST(algoTest, algoTest_exeuler)
 {
-    ASSERT_EQ(agoh::exeuler(9, "8", 7), 4);
-    ASSERT_EQ(agoh::exeuler(998244353, "98765472103312450233333333333", 12345), 5333);
-    ASSERT_EQ(agoh::exeuler(12345, "12345678987654321", 12345678), 2699055);
-    ASSERT_EQ(agoh::exeuler(2, "1", 4), 2);
-    ASSERT_EQ(agoh::exeuler(2, "2", 4), 0);
+    ASSERT_EQ(agoh::ex_euler(9, "8", 7), 4);
+    ASSERT_EQ(agoh::ex_euler(998244353, "98765472103312450233333333333", 12345), 5333);
+    ASSERT_EQ(agoh::ex_euler(12345, "12345678987654321", 12345678), 2699055);
+    ASSERT_EQ(agoh::ex_euler(2, "1", 4), 2);
+    ASSERT_EQ(agoh::ex_euler(2, "2", 4), 0);
 }
 
 TEST(algoTest, algoTest_euler_seive_prime)
 {
     std::vector<int32_t> vans{2,  3,  5,  7,  11, 13, 17, 19, 23, 29, 31, 37, 41,
                               43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
-    ASSERT_EQ(agoh::euler_seive_prime(97), vans);
+    ASSERT_EQ(agoh::euler_sieve_prime(97), vans);
 }
 
 TEST(algoTest, algoTest_kmp_nxt1)
 {
     std::vector<size_t> vans{0, 0, 1};
-    ASSERT_EQ(agoh::kmp_next("aba"), vans);
+    ASSERT_EQ(agoh::prefix_function("aba"), vans);
 }
 
 TEST(algoTest, algoTest_kmp_nxt2)
 {
     std::vector<size_t> vans{0, 1, 2, 3, 4};
-    ASSERT_EQ(agoh::kmp_next("aaaaa"), vans);
+    ASSERT_EQ(agoh::prefix_function("aaaaa"), vans);
 }
 
 TEST(algoTest, algoTest_kmp1)
