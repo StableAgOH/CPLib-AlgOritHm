@@ -36,7 +36,7 @@ public:
 };
 
 template<typename T>
-requires std::signed_integral<T>
+requires std::unsigned_integral<T>
 std::vector<T> dijkstra(const Graph<T>& g, size_t start, T inf)
 {
     typedef std::pair<T, size_t> pii;

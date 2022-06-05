@@ -36,20 +36,20 @@ TEST(graphTest, graphTest1)
 
 TEST(graphTest, graphTest_dijkstra1)
 {
-    std::vector<int32_t> vout{0, 2, 4, 3};
-    agoh::Graph<int32_t> g(4);
+    std::vector<uint32_t> vout{0, 2, 4, 3};
+    agoh::Graph<uint32_t> g(4);
     g.add_edge(0, 1, 2);
     g.add_edge(1, 2, 2);
     g.add_edge(1, 3, 1);
     g.add_edge(0, 2, 5);
     g.add_edge(2, 3, 3);
-    ASSERT_EQ(agoh::dijkstra(g, 0, 0x3f3f3f3f), vout);
+    ASSERT_EQ(agoh::dijkstra(g, 0, 0x3f3f3f3fu), vout);
 }
 
 TEST(graphTest, graphTest_dijkstra2)
 {
-    std::vector<int32_t> vout{166, 163, 2147483647, 246, 0};
-    agoh::Graph<int32_t> g(5);
+    std::vector<uint32_t> vout{166, 163, 2147483647, 246, 0};
+    agoh::Graph<uint32_t> g(5);
     g.add_edge(1, 1, 270);
     g.add_edge(0, 3, 89);
     g.add_edge(1, 0, 3);
@@ -65,5 +65,5 @@ TEST(graphTest, graphTest_dijkstra2)
     g.add_edge(1, 3, 83);
     g.add_edge(4, 4, 196);
     g.add_edge(4, 4, 94);
-    ASSERT_EQ(agoh::dijkstra(g, 4, 2147483647), vout);
+    ASSERT_EQ(agoh::dijkstra(g, 4, 2147483647u), vout);
 }
