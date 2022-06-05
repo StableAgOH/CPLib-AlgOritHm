@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "**/include/c++/**": "cpp",
-        "agoh": "cpp"
-    },
-    "[cpp]": {
-        "editor.defaultFormatter": "xaver.clang-format"
-    }
-}

@@ -1,4 +1,4 @@
-#include "../../lib/algo/algo.hpp"
+#include "../lib/algo.hpp"
 #include <algorithm>
 #include <gtest/gtest.h>
 

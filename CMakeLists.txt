@@ -19,9 +19,13 @@ enable_testing()
 
 add_executable(
         AlgOritHm_test
+        test/algoTest.cpp
+        test/graphTest.cpp
         test/ds/DSUTest.cpp
-        test/ds/MonotonyTest.cpp
-        test/ds/SparseTableTest.cpp test/algo/algoTest.cpp test/ds/MonotonyStackTest.cpp)
+        test/ds/MonotonyStackTest.cpp
+        test/ds/MonotonyQueueTest.cpp
+        test/ds/SparseTableTest.cpp
+)
 target_link_libraries(AlgOritHm_test gtest_main)
 
 include(GoogleTest)
