@@ -10,12 +10,12 @@ TEST(graphTest, graphTest1)
     g.add_edge(2, 1, 5);
     g.add_edge(1, 3, 5);
     ASSERT_EQ(g.size(), 4);
-    g.for_each_node(0, [](auto&& p) { ASSERT_TRUE(false); });
+    g.for_each_neighbor(0, [](auto&& p) { ASSERT_TRUE(false); });
     std::set<size_t> sv1{1, 2, 3};
     std::set<int32_t> sw1{2, 3, 5};
     std::set<size_t> sx1;
     std::set<int32_t> sy1;
-    g.for_each_node(1, [&](auto&& p) {
+    g.for_each_neighbor(1, [&](auto&& p) {
         sx1.insert(p.first);
         sy1.insert(p.second);
     });
@@ -25,13 +25,13 @@ TEST(graphTest, graphTest1)
     std::set<int32_t> sw2{5};
     std::set<size_t> sx2;
     std::set<int32_t> sy2;
-    g.for_each_node(2, [&](auto&& p) {
+    g.for_each_neighbor(2, [&](auto&& p) {
         sx2.insert(p.first);
         sy2.insert(p.second);
     });
     ASSERT_EQ(sv2, sx2);
     ASSERT_EQ(sw2, sy2);
-    g.for_each_node(3, [](auto&& p) { ASSERT_TRUE(false); });
+    g.for_each_neighbor(3, [](auto&& p) { ASSERT_TRUE(false); });
 }
 
 TEST(graphTest, graphTest_dijkstra1)
@@ -66,4 +66,29 @@ TEST(graphTest, graphTest_dijkstra2)
     g.add_edge(4, 4, 196);
     g.add_edge(4, 4, 94);
     ASSERT_EQ(agoh::dijkstra(g, 4, 2147483647u), vout);
+}
+
+TEST(graphTest, graphTest_kruskal1)
+{
+    agoh::UndirectedGraph<int32_t> g(4);
+    g.add_edge(0, 1, 2);
+    g.add_edge(0, 2, 2);
+    g.add_edge(0, 3, 3);
+    g.add_edge(1, 2, 4);
+    g.add_edge(2, 3, 3);
+    auto [ans, directed] = agoh::kruskal(g);
+    ASSERT_EQ(ans, 7);
+    ASSERT_TRUE(directed);
+}
+
+TEST(graphTest, graphTest_kruskal2)
+{
+    agoh::UndirectedGraph<int32_t> g(5);
+    g.add_edge(0, 1, 1);
+    g.add_edge(1, 2, 2);
+    g.add_edge(0, 2, 3);
+    g.add_edge(3, 4, 4);
+    auto [ans, directed] = agoh::kruskal(g);
+    ASSERT_EQ(ans, 7);
+    ASSERT_FALSE(directed);
 }
