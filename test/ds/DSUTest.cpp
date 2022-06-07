@@ -19,5 +19,5 @@ TEST(DSUTest, DSUTest1)
     vout.push_back(eq(dsu.find(0), dsu.find(3)));
     dsu.merge(1, 2);
     vout.push_back(eq(dsu.find(0), dsu.find(3)));
-    ASSERT_EQ(vout, vans);
+    EXPECT_EQ(vout, vans);
 }

@@ -14,7 +14,7 @@ TEST(SparseTableTest, SparseTableTest1)
     vout.push_back(st.query(1, 2));
     vout.push_back(st.query(0, 2));
     vout.push_back(st.query(0, 2));
-    ASSERT_EQ(vout, vans);
+    EXPECT_EQ(vout, vans);
 }
 
 TEST(SparseTableTest, SparseTableTest2)
@@ -30,7 +30,7 @@ TEST(SparseTableTest, SparseTableTest2)
     vout.push_back(st.query(1, 2));
     vout.push_back(st.query(0, 2));
     vout.push_back(st.query(0, 2));
-    ASSERT_EQ(vout, vans);
+    EXPECT_EQ(vout, vans);
 }
 
 const int64_t e16 = int64_t(3e16);
@@ -50,7 +50,7 @@ TEST(SparseTableTest, SparseTableTest3)
     vout.push_back(st.query(1, 2));
     vout.push_back(st.query(0, 2));
     vout.push_back(st.query(0, 2));
-    ASSERT_EQ(vout, vans);
+    EXPECT_EQ(vout, vans);
 }
 
 TEST(SparseTableTest, SparseTableTest4)
@@ -66,5 +66,5 @@ TEST(SparseTableTest, SparseTableTest4)
     vout.push_back(st.query(1, 2));
     vout.push_back(st.query(0, 2));
     vout.push_back(st.query(0, 2));
-    ASSERT_EQ(vout, vans);
+    EXPECT_EQ(vout, vans);
 }
