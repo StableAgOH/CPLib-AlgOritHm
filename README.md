@@ -6,6 +6,4 @@
 ![Lines of code](https://img.shields.io/tokei/lines/github/StableAgOH/CPLib-AlgOritHm)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/StableAgOH/CPLib-AlgOritHm)
 
-**AlgOritHm(AgOH)**
-
-A competitive-program lib
+AlgOritHm(AgOH)——A competitive-program lib
