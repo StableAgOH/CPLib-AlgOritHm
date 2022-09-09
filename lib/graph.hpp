@@ -33,7 +33,7 @@ public:
     {
         return n;
     }
-    virtual void add_edge(node_type u, node_type v, T w)
+    virtual void add_edge(node_type u, node_type v, T w = 1)
     {
         if(u >= n || v >= n) throw std::out_of_range("Illegal node id");
         G[u].emplace_back(v, w);
@@ -58,7 +58,7 @@ class UndirectedGraph : public Graph<T>
 {
 public:
     using Graph<T>::Graph;
-    void add_edge(typename Graph<T>::node_type u, typename Graph<T>::node_type v, T w)
+    void add_edge(typename Graph<T>::node_type u, typename Graph<T>::node_type v, T w = 1)
     {
         Graph<T>::add_edge(u, v, w);
         Graph<T>::add_edge(v, u, w);
