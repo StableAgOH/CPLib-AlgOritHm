@@ -16,6 +16,7 @@ enable_testing()
 add_executable(
     AlgOritHm_test
     test/algoTest.cpp
+    test/fractionTest.cpp
     test/graphTest.cpp
     test/ds/DSUTest.cpp
     test/ds/MonotonyStackTest.cpp
