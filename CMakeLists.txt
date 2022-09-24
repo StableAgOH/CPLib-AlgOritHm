@@ -15,14 +15,15 @@ enable_testing()
 
 add_executable(
     AlgOritHm_test
-    test/algoTest.cpp
     test/fractionTest.cpp
     test/graphTest.cpp
+    test/matrixTest.cpp
+    test/stringTest.cpp
     test/ds/DSUTest.cpp
     test/ds/MonotonyStackTest.cpp
     test/ds/MonotonyQueueTest.cpp
     test/ds/SparseTableTest.cpp
-    test/matrixTest.cpp
+    test/math/numtheoryTest.cpp
 )
 target_link_libraries(AlgOritHm_test gtest_main)
 
