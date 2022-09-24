@@ -16,11 +16,20 @@ TEST(numtheoryTest, numtheoryTest_qpow)
     EXPECT_EQ(agoh::qpow(1e18, 1e18, 1e9 + 7), 244417745);
 }
 
-TEST(numtheoryTest, numtheoryTest_inv)
+TEST(numtheoryTest, numtheoryTest_inv1)
 {
     EXPECT_EQ(agoh::inv(2, 998244353), 499122177);
     EXPECT_EQ(agoh::inv(233, 1e9 + 7), 90128756);
     EXPECT_EQ(agoh::inv(1e9, 1e9 + 7), 857142863);
+}
+
+TEST(numtheoryTest, numtheoryTest_inv2)
+{
+    std::vector<int64_t> vin = {233, 666, 1057, 114514, 1919810, 20220924};
+    std::vector<int64_t> vans1 = {844009174, 235321867, 759307909, 137043501, 595887626, 141246948};
+    std::vector<int64_t> vans2 = {90128756, 812312318, 497634819, 987311602, 724460759, 9174111};
+    EXPECT_EQ(agoh::inv(vin, 998244353), vans1);
+    EXPECT_EQ(agoh::inv(vin, 1e9 + 7), vans2);
 }
 
 TEST(numtheoryTest, numtheoryTest_invn)

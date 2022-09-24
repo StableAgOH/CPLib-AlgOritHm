@@ -34,6 +34,21 @@ int64_t inv(int64_t a, int64_t p)
     return (x % p + p) % p;
 }
 
+auto inv(const std::vector<int64_t> v, const int64_t p)
+{
+    auto n = v.size();
+    std::vector<int64_t> s(n + 1), sv(n + 1), res(n);
+    s[0] = 1;
+    for(int i = 1; i <= n; i++)
+        s[i] = s[i - 1] * v[i - 1] % p;
+    sv[n] = inv(s[n], p);
+    for(int i = n; i >= 1; i--)
+        sv[i - 1] = sv[i] * v[i - 1] % p;
+    for(int i = 0; i < n; i++)
+        res[i] = sv[i + 1] * s[i] % p;
+    return res;
+}
+
 std::vector<int64_t> invn(size_t n, int64_t p)
 {
     std::vector<int64_t> inv(n + 1);
