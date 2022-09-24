@@ -52,3 +52,9 @@ TEST(fractionTest, fractionTest5)
     EXPECT_EQ(f * 2, 3);
     EXPECT_EQ(f / 3, agoh::Fraction(1, 2));
 }
+
+TEST(fractionTest, fractionTest6)
+{
+    agoh::Fraction f;
+    EXPECT_EQ(f.toString(), "0/1");
+}
