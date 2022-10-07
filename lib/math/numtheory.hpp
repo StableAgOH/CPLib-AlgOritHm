@@ -34,7 +34,7 @@ int64_t inv(int64_t a, int64_t p)
     return (x % p + p) % p;
 }
 
-auto inv(const std::vector<int64_t> v, const int64_t p)
+auto inv(const std::vector<int64_t>& v, const int64_t p)
 {
     auto n = v.size();
     std::vector<int64_t> s(n + 1), sv(n + 1), res(n);
